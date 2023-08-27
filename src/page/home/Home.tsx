@@ -1,11 +1,10 @@
 import React from 'react'
+import SimpleButtonFX from '../../components/SimpleButtonFX';
 
-type Props = {}
-
-const Home = (props: Props) => {
+const Usage = () => {
   return (
-    <div>Home</div>
+    <SimpleButtonFX />
   )
 }
 
-export default Home;
+export default Usage

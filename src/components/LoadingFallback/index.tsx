@@ -7,7 +7,6 @@ type LoadingFallbackProps = {
 
 const LoadingFallback = (props: LoadingFallbackProps) => {
   const { fullscreen } = props
-  console.log("fullscreen", fullscreen);
   return (
     <div>Loading...</div>
   )

@@ -1,34 +1,20 @@
 import { memo, Suspense } from 'react'
-import { BrowserRouter, useRoutes } from 'react-router-dom'
-
-import Layout from '../components/layout/Layout'
+import { BrowserRouter } from 'react-router-dom'
 import LoadingFallback from '../components/LoadingFallback'
 import Home from '../page/home/Home'
-import Calendar from '../page/calendar/Calendar'
-
-
-export const PUBLIC_ROUTERS = [
-  { path: '/', element: <Home />, label: "home" },
-  { path: '/calendar', element: <Calendar />, label: "Calendar" }
-]
-
-const PublicRoutes = () => {
-  const routes = useRoutes([
-    {
-      path: '/',
-      element: <Layout />,
-      children: [...PUBLIC_ROUTERS]
-    }
-  ])
-
-  return routes
-}
+import { Card } from 'antd'
 
 const ApplicationRouters = () => {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<LoadingFallback fullscreen />}>{<PublicRoutes />}</Suspense>
+      <Suspense fallback={<LoadingFallback fullscreen />}>{
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
+          <Card style={{ height: '200px', width: '200px', display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Home />
+          </Card>
+        </div>
+      }</Suspense>
     </BrowserRouter>
   )
 }
